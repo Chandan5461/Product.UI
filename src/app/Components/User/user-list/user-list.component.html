@@ -1,0 +1,39 @@
+<div *ngIf="role!='User'; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>
+    <div class="container my-5">
+        <h1 class="mb-3">User</h1>
+        <button type="button" *ngIf="isManager('Manager')" routerLink = "/user/add"class="btn btn-primary">Add User</button>
+    
+        <table class="table" *ngIf="users && users.length > 0">
+            <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>Role</th>
+                    <th> </th>
+                </tr>
+            </thead>
+            <tbody>
+         <tr *ngFor="let user of users">
+                    <td>{{ user.username }}</td>
+                    <td>{{ user.name  }}</td>
+                    <td>{{ user.address }}</td>
+                    <td>{{ user.city  }}</td>
+                    <td>{{ user.role  }}</td>
+                    <td  *ngIf="isManager('Manager')"><a [routerLink]="['/user', 'edit', user.id ]">Edit</a></td>
+                    
+                   
+                    
+    
+    
+                </tr>
+            </tbody>
+        </table>
+        <p *ngIf="!users ||  users.length <= 0">No User Found</p>
+    </div>
+</ng-template>
+<ng-template #elseBlock>
+    <h1>You are not Authorize to access this Page</h1>
+</ng-template>

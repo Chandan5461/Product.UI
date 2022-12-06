@@ -1,0 +1,66 @@
+<div class="container my-5">
+  <h1 class="mb-3">Add New User</h1>
+
+  <div class="row">
+  <div class="col-6">
+
+  <form #form="ngForm"(ngSubmit)="addUser()">
+      
+          <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" [(ngModel)]= "addUserRequest.name" #nameField="ngModel" required>
+          </div>
+          <div class="error text-danger small" *ngIf="(nameField.touched || nameField.dirty) && nameField.invalid">Name field is required</div>
+            
+
+          <div class="mb-3">
+              <label for="address" class="form-label">Address</label>
+              <input type="text" class="form-control" id="address" name="Address" [(ngModel)]= "addUserRequest.address" #addressField="ngModel" required>
+            </div>
+            <div class="error text-danger small" *ngIf="(addressField.touched || addressField.dirty) && addressField.invalid">field is required</div>
+            
+
+            <div class="mb-3">
+              <label for="city" class="form-label">City</label>
+              <input type="city" class="form-control" id="city" name="city" [(ngModel)]= "addUserRequest.city" #cityField="ngModel" required>
+            </div>
+            <div class="error text-danger small" *ngIf="(cityField.touched || cityField.dirty) && cityField.invalid"> field is required</div>
+            
+
+             <div class="mb-3">
+              <label for="role" class="form-label">Role</label>
+              <input type="text" class="form-control" id="role" name="Role" [(ngModel)]= "addUserRequest.role" #roleField="ngModel" required>
+            </div> 
+            <div class="error text-danger small" *ngIf="(roleField.touched || roleField.dirty) && roleField.invalid"> field is required</div>
+            
+            
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input type="text" class="form-control" id="username" name="Username" [(ngModel)]= "addUserRequest.username" #usernameField="ngModel" required>
+            </div> 
+            <div class="error text-danger small" *ngIf="(usernameField.touched || usernameField.dirty) && usernameField.invalid"> field is required</div>
+            
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="text" class="form-control" id="password" name="Password" [(ngModel)]= "addUserRequest.password" #passwordField="ngModel" required>
+            </div> 
+            <div class="error text-danger small" *ngIf="(passwordField.touched || passwordField.dirty) && passwordField.invalid"> field is required</div>
+            
+           <!--  <div class="dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="role">Role</button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Admin</a></li>
+                <li><a class="dropdown-item" href="#">User</a></li>
+                <li><a class="dropdown-item" href="#">Manager</a></li>
+              </ul>
+            </div> -->
+
+         
+          
+           <button type="submit" class="btn btn-primary" [disabled]="!(nameField.valid && addressField.valid && cityField.valid && roleField.valid && usernameField.valid && passwordField.valid)">Submit</button> 
+        
+  </form>
+  </div>
+</div>
+</div>
+  

@@ -1,0 +1,32 @@
+<form class="border p-3 rounded-3" [formGroup]="loginForm" (ngSubmit)="loginsubmited()">
+    <div class="rowmg-0">
+        <div class="col text-center p-2 mb-3 bg-light">
+            <span class="fs-3">Login</span>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col mb-3">
+        <label class="username" class="form-label">Username</label>
+        <input type="username" class="form-control" id="username" formControlName="username">
+        <div class="form-text text-danger" *ngIf="Username.errors?.['required'] && (Username.dirty || Username.touched)">
+            Username is Required
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col mb-3">
+            <label class="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" formControlName="password">
+            <div class="form-text text-danger" *ngIf="Password.errors?.['required'] && (Password.dirty || Password.touched)">
+                Password should be at least 4 at the max 15 characters long.
+            </div>
+        </div>
+        </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <div class="d-grid">
+                <button type="submit" [disabled]="loginForm.invalid" class="'btn btn-primary">Login</button>
+            </div>
+        </div>
+    </div>    
+</form>

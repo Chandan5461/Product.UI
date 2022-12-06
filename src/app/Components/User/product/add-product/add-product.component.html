@@ -1,0 +1,48 @@
+<div class="container my-5">
+    <h1 class="mb-3">Add New Product</h1>
+
+    <div class="row">
+        <div class="col-6">
+    
+
+    <form #form="ngForm" (ngSubmit)="addProduct()">
+        
+            <div class="mb-3">
+              <label for="name" class="form-label">Name</label>
+              <input type="text" class="form-control" id="name"
+               name="name" [(ngModel)] ="addProductRequest.name" #nameField="ngModel" required>
+            </div>
+            <div class="error text-danger small" *ngIf="(nameField.touched || nameField.dirty) && nameField.invalid">Name field is required</div>
+            
+            <div class="mb-3">
+                <label for="quantity" class="form-label">Quantity</label>
+                <input type="number" class="form-control" id="quantity"
+                name="quantity" [(ngModel)] = "addProductRequest.quantity" #quantityField="ngModel" required>
+              </div>
+              <div class="error text-danger small" *ngIf="(quantityField.touched || quantityField.dirty) && quantityField.invalid">Field is required</div>
+            
+
+              <div class="mb-3">
+                <label for="price" class="form-label">Price</label>
+                <input type="number" class="form-control" id="price"
+                name="price" [(ngModel)] = "addProductRequest.price" #priceField="ngModel" required>
+              </div>
+              <div class="error text-danger small" *ngIf="(priceField.touched || priceField.dirty) && priceField.invalid">Field is required</div>
+            
+
+              <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <input type="text" class="form-control" id="status"
+                name="status" [(ngModel)] = "addProductRequest.status" #statusField="ngModel" required>
+              </div>
+              <div class="error text-danger small" *ngIf="(statusField.touched || statusField.dirty) && statusField.invalid">Field is required</div>
+            
+
+           
+            <button type="submit" class="btn btn-primary" [disabled]="!(nameField.valid && quantityField.valid && priceField.valid && statusField.valid)">Save</button>
+          
+
+    </form>
+        </div>
+    </div>
+</div>
